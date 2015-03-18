@@ -27,7 +27,6 @@ router.get('/book/:bookNum/toc.xhtml', function(req, res, next) {
   res.render('toc', { 
   	book: bookNumber
   });
-  res.attachment('toc.xhtml');
 });
 
 
@@ -45,6 +44,7 @@ router.get('/book/:bookNum/introduction.xhtml', function(req, res, next) {
 router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
   var bookNumber = req.params.bookNum;
   var concat = "partials/content/chapter"+bookNumber+".ejs"
+
   res.render('bodymatter', { 
   	book: bookNumber,
   	chapter: concat
