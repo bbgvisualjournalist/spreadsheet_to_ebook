@@ -11,46 +11,81 @@ var users = require('./routes/users');
 var app = express();
 
 
+/*
 //Add data.json to local variables
 app.locals.meta = require('./meta.json');
 app.locals.chapters = require('./chapters.json');
 app.locals.photos = require('./photos.json');
+app.locals.config = require('./config.json');
+*/
+
+//timer experiment
+setInterval(fetchData, 20000);//5 minutes
 
 
+var fs = require('fs');
+function readJSONFile( path ){
+
+var binaryData = fs.readFileSync( path );
+  return JSON.parse( binaryData.toString() );
+}
+
+
+
+global.book = {};
+global.book.meta = readJSONFile('./meta.json');
+global.book.chapters = readJSONFile('./chapters.json');
+global.book.photos = readJSONFile('./photos.json');
+global.book.config = readJSONFile('./config.json');
 
 
 //jsonfile is a module for rendering pretty json that works
 var fs = require('fs');
 var jf = require('jsonfile');
 
-//Load data from google spreadsheet and write it to the meta.json, photos.json and chapters.json files.
-var Tabletop = require('tabletop');
-var testURL = 'https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml';
+var offlineMode=false;
 
-var myData;
-function onLoad(data, tabletop) {
-  console.log(data);
+function fetchData(){
+  if (!offlineMode){
+    //Load data from google spreadsheet and write it to the meta.json, photos.json and chapters.json files.
+    var Tabletop = require('tabletop');
+    var testURL = 'https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml';
 
-  //
-  jf.writeFile("chapters.json", data.chapters.elements, function(err) {
-    console.log(err)
-  })
-  jf.writeFile("meta.json", data.meta.elements, function(err) {
-    console.log(err)
-  })
-  jf.writeFile("photos.json", data.photos.elements, function(err) {
-    console.log(err)
-  })
-};
+    var myData;
+    function onLoad(data, tabletop) {
+      //console.log(data);
+      console.log("loading, updating and saving data from spreadsheet");
 
-var options = {
-  key: testURL,
-  callback: onLoad
-};
+      //
+      jf.writeFile("chapters.json", data.chapters.elements, function(err) {
+        global.book.chapters = readJSONFile('./chapters.json');
+        console.log(err)
+      })
+      jf.writeFile("meta.json", data.meta.elements, function(err) {
+        global.book.meta = readJSONFile('./meta.json');
+        console.log(err)
+      })
+      jf.writeFile("photos.json", data.photos.elements, function(err) {
+        global.book.photos = readJSONFile('./photos.json');
+        console.log(err)
+      })
+      jf.writeFile("config.json", data.config.elements, function(err) {
+        global.book.config = readJSONFile('./config.json');
+        console.log(err);
+      })
 
-Tabletop.init(options);
+      
+    };
 
+    var options = {
+      key: testURL,
+      callback: onLoad
+    };
 
+    Tabletop.init(options);
+  }
+}
+//fetchData();
 
 
 // view engine setup
@@ -66,6 +101,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -75,6 +111,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handlers
 
@@ -99,6 +136,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
 
 
 module.exports = app;
