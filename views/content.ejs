@@ -1,21 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="3.0">
 <metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
-	<dc:creator id="author">VOA</dc:creator>
-	<meta refines="#author" property="alternate-script" xml:lang="zh-Hant">美國之音</meta>
+	<dc:creator id="author"><%- global.book.config[0].authorenglish %></dc:creator>
+	<meta refines="#author" property="alternate-script" xml:lang="zh-Hant"><%- global.book.config[0].authorchinese %></meta>
 	<dc:publisher>Mirror Publishing</dc:publisher>
 	<dc:date>2013-07-08T04:00:00+00:00</dc:date>
-	<dc:description><%- meta[book].descriptionchinese %> </dc:description id="description">
-	<meta refines="#description" property="alternate-script" xml:lang="en"><%- meta[book].descriptionenglish %> </meta>
+	<dc:description><%- global.book.meta[book].descriptionchinese %> </dc:description id="description">
+	<meta refines="#description" property="alternate-script" xml:lang="en"><%- global.book.meta[book].descriptionenglish %> </meta>
 	<dc:language>zh</dc:language>
-	<dc:identifier id="uuid_id" ><%- meta[book].uuid %> </dc:identifier>
-	<dc:identifier id="pub-identifier" >urn:isbn:<%- meta[book].isbn %></dc:identifier>
-	<dc:title id="bookTitle"><%- meta[book].booktitlechinese %></dc:title>
-	<meta refines="#bookTitle" property="alternate-script" xml:lang="en"><%- meta[book].booktitleenglish %></meta>
+	<dc:identifier id="uuid_id" ><%- global.book.meta[book].uuid %> </dc:identifier>
+	<dc:identifier id="pub-identifier" >urn:isbn:<%- global.book.meta[book].isbn %></dc:identifier>
+	<dc:title id="bookTitle"><%- global.book.meta[book].booktitlechinese %></dc:title>
+	<meta refines="#bookTitle" property="alternate-script" xml:lang="en"><%- global.book.meta[book].booktitleenglish %></meta>
 	<dc:subject>國家禁區</dc:subject>
 	<dc:subject>Guojia Mimi</dc:subject>
-	<dc:subject>美國之音</dc:subject>
-	<dc:subject>VOA</dc:subject>
+	<dc:subject><%- global.book.config[0].authorchinese %></dc:subject>
+	<dc:subject><%- global.book.config[0].authorenglish %></dc:subject>
 	<meta name="cover" content="cover"/>
 	<meta property="dcterms:modified"><%- date %></meta>
 </metadata>
@@ -35,8 +35,8 @@
 	<item id="font3" href="fonts/ヒラギノ明朝ProW6.otf" media-type="application/vnd.ms-opentype"/>
 	<item id="font4" href="fonts/ヒラギノ明朝ProW3.otf" media-type="application/vnd.ms-opentype"/>
 	<!--Update the images and videos-->
-	<%for (var i=0; i<photos.length;i++){ %>
-	<item id="photo<%= i %>" href="images/<%= photos[i].filename%>" media-type="image/jpeg"/><% } %>
+	<%for (var i=0; i<global.book.photos.length;i++){ %>
+	<item id="photo<%= i %>" href="images/<%= global.book.photos[i].filename%>" media-type="image/jpeg"/><% } %>
 </manifest>
 <spine toc="ncx">
 	<itemref idref="cover"/>

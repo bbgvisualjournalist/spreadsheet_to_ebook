@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="zh-Hant" xml:lang="zh-Hant">
 <head>
 	<% include partials/template/head.ejs %>
-	<title><%= meta[book].booktitlechinese %></title>
+	<title><%= global.book.meta[book].booktitlechinese %></title>
 </head>
 <body>
-	<h2>目 錄</h2>
+	<h2>目 錄 </h2>
 	<nav epub:type="toc" id="toc">
 		<ol>			
 			<li class="toc-1">
@@ -18,10 +18,10 @@
 				<a href="introduction.xhtml#foreword">前言：解密《解密時刻》</a>
 			</li>
 
-			<% for (var i=0; i<chapters.length; i++){ %>
-				<% if (chapters[i].book == book){ %>
-				<li class="toc-<%= chapters[i].indent%>">
-					<a href="bodymatter.xhtml#<%= chapters[i].htmlid %>"><%= chapters[i].chinese %></a>
+			<% for (var i=0; i<global.book.chapters.length; i++){ %>
+				<% if (global.book.chapters[i].book == book){ %>
+				<li class="toc-<%= global.book.chapters[i].indent%>">
+					<a href="bodymatter.xhtml#<%= global.book.chapters[i].htmlid %>"><%= global.book.chapters[i].chinese %></a>
 				</li><% } %><% } %>
 
 			<li class="toc-1">
