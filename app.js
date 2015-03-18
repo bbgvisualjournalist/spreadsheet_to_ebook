@@ -11,27 +11,19 @@ var users = require('./routes/users');
 var app = express();
 
 
-/*
-//Add data.json to local variables
-app.locals.meta = require('./meta.json');
-app.locals.chapters = require('./chapters.json');
-app.locals.photos = require('./photos.json');
-app.locals.config = require('./config.json');
-*/
-
-//timer experiment
-setInterval(fetchData, 20000);//5 minutes
 
 
+//Add a simple function for reading files.
 var fs = require('fs');
-function readJSONFile( path ){
+var jf = require('jsonfile');
 
-var binaryData = fs.readFileSync( path );
+function readJSONFile( path ){
+  var binaryData = fs.readFileSync( path );
   return JSON.parse( binaryData.toString() );
 }
 
 
-
+//Use namespaced global variable to keep data that will update.
 global.book = {};
 global.book.meta = readJSONFile('./meta.json');
 global.book.chapters = readJSONFile('./chapters.json');
@@ -39,12 +31,16 @@ global.book.photos = readJSONFile('./photos.json');
 global.book.config = readJSONFile('./config.json');
 
 
-//jsonfile is a module for rendering pretty json that works
-var fs = require('fs');
-var jf = require('jsonfile');
-
+//Toggle for offline use; ignores Google spreadsheet request.
 var offlineMode=false;
 
+
+//Add a timer to periodically update data for edits.
+//20000 = 20 seconds; 60000 = 1 minute ; 300000 = 5 minutes
+setInterval(fetchData, 60000);
+
+
+//Fetch data from Google spreadsheet
 function fetchData(){
   if (!offlineMode){
     //Load data from google spreadsheet and write it to the meta.json, photos.json and chapters.json files.
@@ -74,7 +70,6 @@ function fetchData(){
         console.log(err);
       })
 
-      
     };
 
     var options = {
@@ -85,7 +80,7 @@ function fetchData(){
     Tabletop.init(options);
   }
 }
-//fetchData();
+
 
 
 // view engine setup
