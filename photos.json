@@ -1,0 +1,26 @@
+[
+  {
+    "book": "1",
+    "filename": "bob.jpg",
+    "cutline": "this is a cutline",
+    "credit": "AP",
+    "alttext": "alt text goes here.",
+    "rowNumber": 1
+  },
+  {
+    "book": "1",
+    "filename": "jane.jpg",
+    "cutline": "cutline or caption",
+    "credit": "Reuters",
+    "alttext": "alt textification",
+    "rowNumber": 2
+  },
+  {
+    "book": "1",
+    "filename": "steve.jpg",
+    "cutline": "caption",
+    "credit": "polaroid",
+    "alttext": "alt",
+    "rowNumber": 3
+  }
+]
