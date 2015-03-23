@@ -2,11 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="zh-Hant" xml:lang="zh-Hant">
 <head>
 	<% include partials/template/head.ejs %>
-	<title><%= meta[book].booktitlechinese %></title>
+	<title><%= title %></title>
+	<style type="text/css">
+		body{padding:20px 5%;}
+		h1{font-family: sans-serif; text-align: left;}
+	</style>
 </head>
 <body>
-	<div epub:type="bodymatter" id="bodymatter">
-	<%- include(chapter) %>
-	</div>
+
+	<h1><%= title %></h1>
+	<p>The metadata, titles and chapters are being generated from this <a href='https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml' target='_blank'>google spreadsheet</a>.</p>
+	<br/>
+
+	<% for (var i=0; i<global.book.meta.length; i++){ %>
+		<div class='book'>
+		<h3><%= global.book.meta[i].booktitlechinese %> | <%= global.book.meta[i].booktitleenglish %></h3>
+		<p><%= global.book.meta[i].descriptionenglish %></p>
+		<ul>
+			<li><a href='/book/<%= i %>/content.opf'>content.opf</a></li>
+			<li><a href='/book/<%= i %>/toc.xhtml'>toc.xhtml</a></li>
+			<li><a href='/book/<%= i %>/titlepage.xhtml'>titlepage.xhtml</a></li>
+			<li><a href='/book/<%= i %>/introduction.xhtml'>introduction.xhtml</a></li>
+			<li><a href='/book/<%= i %>/bodymatter.xhtml'>bodymatter.xhtml</a> (dummy content)</li>
+			<li><a href='/book/<%= i %>/backmatter.xhtml'>backmatter.xhtml</a> (dummy content)</li>
+		</ul>
+		</div>
+		<br/>
+	<% } %>
+
 </body>
 </html>

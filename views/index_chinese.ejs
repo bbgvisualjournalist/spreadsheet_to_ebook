@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="zh-Hant" xml:lang="zh-Hant">
+<head>
+	<% include partials/template/head.ejs %>
+	<title><%= title %></title>
+</head>
+<body>
+
+<h1><%= title %></h1>
+
+	<% for (var i=0; i<global.book.meta.length; i++){ %>
+		<div class='book'>
+		<h3><%= global.book.meta[i].booktitlechinese %></h3>
+		<p><%= global.book.meta[i].descriptionchinese %></p>
+		<ul>
+			<li><a href='/book/<%= i %>/content.opf'>content.opf</a></li>
+			<li><a href='/book/<%= i %>/toc.xhtml'>toc.xhtml</a></li>
+			<li><a href='/book/<%= i %>/titlepage.xhtml'>titlepage.xhtml</a></li>
+			<li><a href='/book/<%= i %>/introduction.xhtml'>introduction.xhtml</a></li>
+			<li><a href='/book/<%= i %>/bodymatter.xhtml'>bodymatter.xhtml</a></li>
+			<li><a href='/book/<%= i %>/backmatter.xhtml'>backmatter.xhtml</a></li>
+		</ul>
+		</div>
+		<br/>
+	<% } %>
+
+</body>
+</html>

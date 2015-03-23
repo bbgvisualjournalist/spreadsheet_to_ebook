@@ -11,8 +11,6 @@ var users = require('./routes/users');
 var app = express();
 
 
-
-
 //Add a simple function for reading files.
 var fs = require('fs');
 var jf = require('jsonfile');

@@ -3,9 +3,18 @@ var router = express.Router();
 
 
 
-/* GET home page. */
+/* GET list of books and links to files. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { 
+    title: 'Books'
+  });
+});
+
+/* GET list of books and links to files. */
+router.get('/chinese', function(req, res, next) {
+  res.render('index_chinese', { 
+    title: 'Books'
+  });
 });
 
 /* GET book number for content.opf. */

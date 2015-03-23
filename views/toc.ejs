@@ -19,7 +19,7 @@
 			</li>
 
 			<% for (var i=0; i<global.book.chapters.length; i++){ %>
-				<% if (global.book.chapters[i].book == book){ %>
+				<% if (global.book.chapters[i].book - 1 == book){ %>
 				<li class="toc-<%= global.book.chapters[i].indent%>">
 					<a href="bodymatter.xhtml#<%= global.book.chapters[i].htmlid %>"><%= global.book.chapters[i].chinese %></a>
 				</li><% } %><% } %>
