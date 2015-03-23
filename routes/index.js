@@ -28,6 +28,15 @@ router.get('/book/:bookNum/content.opf', function(req, res, next) {
   });
 });
 
+/* GET book number for titlepage.xhtml. */
+router.get('/book/:bookNum/titlepage.xhtml', function(req, res, next) {
+  var bookNumber = req.params.bookNum;
+
+  res.render('titlepage', { 
+    book: bookNumber
+  });
+});
+
 
 /* GET book number for toc.xhtml. */
 router.get('/book/:bookNum/toc.xhtml', function(req, res, next) {
@@ -51,12 +60,30 @@ router.get('/book/:bookNum/introduction.xhtml', function(req, res, next) {
 
 /* GET book number for bodymatter.xhtml. */
 router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
-  var bookNumber = req.params.bookNum;
-  var concat = "partials/content/chapter"+bookNumber+".ejs"
+  var bookNumber = parseInt(req.params.bookNum);
+  var concat = "partials/content/chapter"+bookNumber+".ejs";
+  var photos_array = [];
+  var cutlines_array = [];
+  var credits_array = [];
+  var alt_array = [];
+
+  for (var i=0; i<global.book.photos.length; i++){
+    if (bookNumber+1==global.book.photos[i].book){
+      console.log('pushed!!!!!!!!!!!')
+      photos_array.push(global.book.photos[i].filename);
+      cutlines_array.push(global.book.photos[i].cutline);
+      credits_array.push(global.book.photos[i].credit);
+      alt_array.push(global.book.photos[i].alttext);
+    }
+  }
 
   res.render('bodymatter', { 
   	book: bookNumber,
-  	chapter: concat
+  	chapter: concat,
+    photos: photos_array,
+    cutlines: cutlines_array,
+    credits: credits_array,
+    alt: alt_array
   });
 });
 

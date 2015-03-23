@@ -2,19 +2,19 @@
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="3.0">
 <metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<dc:creator id="author"><%- global.book.config[0].authorenglish %></dc:creator>
-	<meta refines="#author" property="alternate-script" xml:lang="zh-Hant"><%- global.book.config[0].authorchinese %></meta>
+	<meta refines="#author" property="alternate-script" xml:lang="zh-Hant"><%- global.book.config[0].author %></meta>
 	<dc:publisher>Mirror Publishing</dc:publisher>
 	<dc:date>2013-07-08T04:00:00+00:00</dc:date>
-	<dc:description><%- global.book.meta[book].descriptionchinese %> </dc:description id="description">
+	<dc:description><%- global.book.meta[book].description %> </dc:description id="description">
 	<meta refines="#description" property="alternate-script" xml:lang="en"><%- global.book.meta[book].descriptionenglish %> </meta>
 	<dc:language>zh</dc:language>
 	<dc:identifier id="uuid_id" ><%- global.book.meta[book].uuid %> </dc:identifier>
 	<dc:identifier id="pub-identifier" >urn:isbn:<%- global.book.meta[book].isbn %></dc:identifier>
-	<dc:title id="bookTitle"><%- global.book.meta[book].booktitlechinese %></dc:title>
+	<dc:title id="bookTitle"><%- global.book.meta[book].booktitle %></dc:title>
 	<meta refines="#bookTitle" property="alternate-script" xml:lang="en"><%- global.book.meta[book].booktitleenglish %></meta>
 	<dc:subject>國家禁區</dc:subject>
 	<dc:subject>Guojia Mimi</dc:subject>
-	<dc:subject><%- global.book.config[0].authorchinese %></dc:subject>
+	<dc:subject><%- global.book.config[0].author %></dc:subject>
 	<dc:subject><%- global.book.config[0].authorenglish %></dc:subject>
 	<meta name="cover" content="cover"/>
 	<meta property="dcterms:modified"><%- date %></meta>

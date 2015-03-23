@@ -1,8 +1,10 @@
 [
   {
-    "seriestitlechinese": "国家机密",
+    "seriestitle": "国家机密",
     "seriestitleenglish": "State Secrets",
-    "authorchinese": "美國之音",
+    "bridgetitle": "《真相》系列（84）",
+    "bridgetitleenglish": "\"Truth\" series (84)",
+    "author": "美國之音",
     "authorenglish": "VOA",
     "language": "Chinese",
     "languagecode": "zh-Hant",

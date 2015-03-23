@@ -2,8 +2,8 @@
   {
     "book": "1",
     "chapter": "1",
-    "chinese": "北京有個總書記監獄",
-    "english": "A Jail for Party Chief in Beijing",
+    "chaptertitle": "北京有個總書記監獄",
+    "chaptertitleenglish": "A Jail for Party Chief in Beijing",
     "htmlid": "start",
     "indent": "1",
     "rowNumber": 1
@@ -11,8 +11,8 @@
   {
     "book": "1",
     "chapter": "2",
-    "chinese": "他為何要縱情大笑？",
-    "english": "Why did he burst into laughter?",
+    "chaptertitle": "他為何要縱情大笑？",
+    "chaptertitleenglish": "Why did he burst into laughter?",
     "htmlid": "part1",
     "indent": "2",
     "rowNumber": 2
@@ -20,8 +20,8 @@
   {
     "book": "1",
     "chapter": "3",
-    "chinese": "政治家職業生涯突然中斷",
-    "english": "Sudden end of his political career",
+    "chaptertitle": "政治家職業生涯突然中斷",
+    "chaptertitleenglish": "Sudden end of his political career",
     "htmlid": "part2",
     "indent": "2",
     "rowNumber": 3
@@ -29,8 +29,8 @@
   {
     "book": "1",
     "chapter": "4",
-    "chinese": "孤獨是摧毀趙紫陽健康的殺手",
-    "english": "Solidarity, a killer of health",
+    "chaptertitle": "孤獨是摧毀趙紫陽健康的殺手",
+    "chaptertitleenglish": "Solidarity, a killer of health",
     "htmlid": "part3",
     "indent": "2",
     "rowNumber": 4
@@ -38,8 +38,8 @@
   {
     "book": "1",
     "chapter": "5",
-    "chinese": "死後受到的種種限制",
-    "english": "Restraints are not lifted on his death",
+    "chaptertitle": "死後受到的種種限制",
+    "chaptertitleenglish": "Restraints are not lifted on his death",
     "htmlid": "part4",
     "indent": "2",
     "rowNumber": 5
@@ -47,8 +47,8 @@
   {
     "book": "1",
     "chapter": "6",
-    "chinese": "告別儀式上的一個小意外",
-    "english": "An accident at Zhao’s farewell ceremony",
+    "chaptertitle": "告別儀式上的一個小意外",
+    "chaptertitleenglish": "An accident at Zhao’s farewell ceremony",
     "htmlid": "part5",
     "indent": "2",
     "rowNumber": 6
@@ -56,8 +56,8 @@
   {
     "book": "1",
     "chapter": "7",
-    "chinese": "誰才是中國改革開放的真正“總設計師”？",
-    "english": "Who is the real “chief engineer” of China’s reforms?",
+    "chaptertitle": "誰才是中國改革開放的真正“總設計師”？",
+    "chaptertitleenglish": "Who is the real “chief engineer” of China’s reforms?",
     "htmlid": "part6",
     "indent": "2",
     "rowNumber": 7
@@ -65,8 +65,8 @@
   {
     "book": "1",
     "chapter": "8",
-    "chinese": "社會主義初級階段”的真正內涵",
-    "english": "What does it mean by “the primary stage of socialism”?",
+    "chaptertitle": "社會主義初級階段”的真正內涵",
+    "chaptertitleenglish": "What does it mean by “the primary stage of socialism”?",
     "htmlid": "part7",
     "indent": "2",
     "rowNumber": 8
@@ -74,8 +74,8 @@
   {
     "book": "1",
     "chapter": "9",
-    "chinese": "關於六四",
-    "english": "On June 4th Incident",
+    "chaptertitle": "關於六四",
+    "chaptertitleenglish": "On June 4th Incident",
     "htmlid": "part8",
     "indent": "2",
     "rowNumber": 9
@@ -83,8 +83,8 @@
   {
     "book": "1",
     "chapter": "10",
-    "chinese": "惺惺相惜，為鄧趙之間的誤會深感遺憾",
-    "english": "Deep regret for misunderstandings with Deng",
+    "chaptertitle": "惺惺相惜，為鄧趙之間的誤會深感遺憾",
+    "chaptertitleenglish": "Deep regret for misunderstandings with Deng",
     "htmlid": "part9",
     "indent": "2",
     "rowNumber": 10
@@ -92,8 +92,8 @@
   {
     "book": "1",
     "chapter": "11",
-    "chinese": "命也、運也，趙為未能避免流血感到無奈",
-    "english": "Helpless watching bloody crash happen",
+    "chaptertitle": "命也、運也，趙為未能避免流血感到無奈",
+    "chaptertitleenglish": "Helpless watching bloody crash happen",
     "htmlid": "part10",
     "indent": "2",
     "rowNumber": 11
@@ -101,8 +101,8 @@
   {
     "book": "1",
     "chapter": "12",
-    "chinese": "鄧要是會上當受騙，就不是鄧小平了",
-    "english": "No easy to deceive smart Deng",
+    "chaptertitle": "鄧要是會上當受騙，就不是鄧小平了",
+    "chaptertitleenglish": "No easy to deceive smart Deng",
     "htmlid": "part11",
     "indent": "2",
     "rowNumber": 12
@@ -110,8 +110,8 @@
   {
     "book": "1",
     "chapter": "13",
-    "chinese": "胡溫是好人，但難有大作為",
-    "english": "Hu and Wen, nice but not pioneering",
+    "chaptertitle": "胡溫是好人，但難有大作為",
+    "chaptertitleenglish": "Hu and Wen, nice but not pioneering",
     "htmlid": "part12",
     "indent": "2",
     "rowNumber": 13
@@ -119,8 +119,8 @@
   {
     "book": "1",
     "chapter": "14",
-    "chinese": "李先念是個堅定的反改革派",
-    "english": "Li Xiannian, a staunch opponent of reforms",
+    "chaptertitle": "李先念是個堅定的反改革派",
+    "chaptertitleenglish": "Li Xiannian, a staunch opponent of reforms",
     "htmlid": "part13",
     "indent": "2",
     "rowNumber": 14
@@ -128,8 +128,8 @@
   {
     "book": "1",
     "chapter": "15",
-    "chinese": "必須實現議會民主政治",
-    "english": "Parliamentary democracy cannot be bypassed",
+    "chaptertitle": "必須實現議會民主政治",
+    "chaptertitleenglish": "Parliamentary democracy cannot be bypassed",
     "htmlid": "part14",
     "indent": "2",
     "rowNumber": 15
@@ -137,8 +137,8 @@
   {
     "book": "1",
     "chapter": "16",
-    "chinese": "主張開放報禁",
-    "english": "Support of open press",
+    "chaptertitle": "主張開放報禁",
+    "chaptertitleenglish": "Support of open press",
     "htmlid": "part15",
     "indent": "2",
     "rowNumber": 16
@@ -146,8 +146,8 @@
   {
     "book": "1",
     "chapter": "17",
-    "chinese": "允許黨內有派，主張走民主之路",
-    "english": "Road to democracy inside and outside the party",
+    "chaptertitle": "允許黨內有派，主張走民主之路",
+    "chaptertitleenglish": "Road to democracy inside and outside the party",
     "htmlid": "part16",
     "indent": "2",
     "rowNumber": 17
@@ -155,8 +155,8 @@
   {
     "book": "2",
     "chapter": "1",
-    "chinese": "1956年漢藏關係惡化 解放軍備戰拉薩",
-    "english": "Deterioration of Han-Tibetan relations leads to PLA war preparation in 1956",
+    "chaptertitle": "1956年漢藏關係惡化 解放軍備戰拉薩",
+    "chaptertitleenglish": "Deterioration of Han-Tibetan relations leads to PLA war preparation in 1956",
     "htmlid": "start",
     "indent": "1",
     "rowNumber": 18
@@ -164,8 +164,8 @@
   {
     "book": "2",
     "chapter": "2",
-    "chinese": "中共政策激進，達賴喇嘛萌發不歸意",
-    "english": "Dalai Lama attempts to leave as Beijing’s policies become more radical",
+    "chaptertitle": "中共政策激進，達賴喇嘛萌發不歸意",
+    "chaptertitleenglish": "Dalai Lama attempts to leave as Beijing’s policies become more radical",
     "htmlid": "part1",
     "indent": "2",
     "rowNumber": 19
@@ -173,8 +173,8 @@
   {
     "book": "2",
     "chapter": "3",
-    "chinese": "“民主改革”觸發藏人強烈抵觸",
-    "english": "“Democratic Reform” triggers off strong resistance",
+    "chaptertitle": "“民主改革”觸發藏人強烈抵觸",
+    "chaptertitleenglish": "“Democratic Reform” triggers off strong resistance",
     "htmlid": "part2",
     "indent": "2",
     "rowNumber": 20
@@ -182,8 +182,8 @@
   {
     "book": "2",
     "chapter": "4",
-    "chinese": "以武力推動“改造”是中共的既定政策",
-    "english": "Beijing plans to push forward a forced “reform”",
+    "chaptertitle": "以武力推動“改造”是中共的既定政策",
+    "chaptertitleenglish": "Beijing plans to push forward a forced “reform”",
     "htmlid": "part3",
     "indent": "2",
     "rowNumber": 21
@@ -191,8 +191,8 @@
   {
     "book": "2",
     "chapter": "5",
-    "chinese": "毛澤東保證“六年不改” 周恩來赴印勸回達賴喇嘛",
-    "english": "Mao promised “no reforms for six years”, and Zhou persuaded Dalai to return home",
+    "chaptertitle": "毛澤東保證“六年不改” 周恩來赴印勸回達賴喇嘛",
+    "chaptertitleenglish": "Mao promised “no reforms for six years”, and Zhou persuaded Dalai to return home",
     "htmlid": "part4",
     "indent": "2",
     "rowNumber": 22
@@ -200,8 +200,8 @@
   {
     "book": "2",
     "chapter": "6",
-    "chinese": "四省藏區的大屠殺",
-    "english": "Massive killings in four Tibetan-living provinces",
+    "chaptertitle": "四省藏區的大屠殺",
+    "chaptertitleenglish": "Massive killings in four Tibetan-living provinces",
     "htmlid": "part5",
     "indent": "2",
     "rowNumber": 23
@@ -209,8 +209,8 @@
   {
     "book": "2",
     "chapter": "7",
-    "chinese": "達賴喇嘛看演出遇阻之謎",
-    "english": "The myth around Dalai Lama’s plan to see a performance",
+    "chaptertitle": "達賴喇嘛看演出遇阻之謎",
+    "chaptertitleenglish": "The myth around Dalai Lama’s plan to see a performance",
     "htmlid": "part6",
     "indent": "2",
     "rowNumber": 24
@@ -218,8 +218,8 @@
   {
     "book": "2",
     "chapter": "8",
-    "chinese": "達賴喇嘛警衛是否獲令不得陪行？",
-    "english": "Why were Dalai’s body guards not allowed to go with their master?",
+    "chaptertitle": "達賴喇嘛警衛是否獲令不得陪行？",
+    "chaptertitleenglish": "Why were Dalai’s body guards not allowed to go with their master?",
     "htmlid": "part7",
     "indent": "2",
     "rowNumber": 25
@@ -227,8 +227,8 @@
   {
     "book": "2",
     "chapter": "9",
-    "chinese": "西藏地方政府組織“叛亂”了嗎？",
-    "english": "Was the Tibetan government involved in organizing “the rebellion”?",
+    "chaptertitle": "西藏地方政府組織“叛亂”了嗎？",
+    "chaptertitleenglish": "Was the Tibetan government involved in organizing “the rebellion”?",
     "htmlid": "part8",
     "indent": "2",
     "rowNumber": 26

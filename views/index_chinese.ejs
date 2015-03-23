@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="zh-Hant" xml:lang="zh-Hant">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="<%= global.book.config[0].languagecode %>" xml:lang="<%= global.book.config[0].languagecode %>">
 <head>
 	<% include partials/template/head.ejs %>
 	<title><%= title %></title>
@@ -10,8 +10,8 @@
 
 	<% for (var i=0; i<global.book.meta.length; i++){ %>
 		<div class='book'>
-		<h3><%= global.book.meta[i].booktitlechinese %></h3>
-		<p><%= global.book.meta[i].descriptionchinese %></p>
+		<h3><%= global.book.meta[i].booktitle %></h3>
+		<p><%= global.book.meta[i].description %></p>
 		<ul>
 			<li><a href='/book/<%= i %>/content.opf'>content.opf</a></li>
 			<li><a href='/book/<%= i %>/toc.xhtml'>toc.xhtml</a></li>

@@ -1,26 +1,110 @@
 [
   {
     "book": "1",
-    "filename": "bob.jpg",
-    "cutline": "this is a cutline",
-    "credit": "AP",
-    "alttext": "alt text goes here.",
+    "imagenumber": "0",
+    "filename": "1_cover.jpg",
+    "cutline": "cover photo",
+    "credit": "x",
+    "alttext": "x",
     "rowNumber": 1
   },
   {
     "book": "1",
-    "filename": "jane.jpg",
-    "cutline": "cutline or caption",
-    "credit": "Reuters",
-    "alttext": "alt textification",
+    "imagenumber": "1",
+    "filename": "1_鄒雪平.jpg",
+    "cutline": "鄒雪平同學 1",
+    "credit": "(美國之音章明拍攝)",
+    "alttext": "鄒雪平",
     "rowNumber": 2
   },
   {
     "book": "1",
+    "imagenumber": "2",
+    "filename": "2_墓碑封面.jpg",
+    "cutline": "《墓碑：中國六十年代大饑荒紀實》封面 2",
+    "credit": "",
+    "alttext": "alt textification",
+    "rowNumber": 3
+  },
+  {
+    "book": "1",
+    "imagenumber": "3",
+    "filename": "3_杨继绳.jpg",
+    "cutline": "cutline 3",
+    "credit": "( credit 3 )",
+    "alttext": "alt textg goes here",
+    "rowNumber": 4
+  },
+  {
+    "book": "2",
+    "imagenumber": "0",
+    "filename": "1_cover.jpg",
+    "cutline": "cover photo",
+    "credit": "x",
+    "alttext": "x",
+    "rowNumber": 5
+  },
+  {
+    "book": "2",
+    "imagenumber": "1",
+    "filename": "2_墓碑封面.jpg",
+    "cutline": "《墓碑：中國六十年代大饑荒紀實》封面 1",
+    "credit": "",
+    "alttext": "alt text goes here.",
+    "rowNumber": 6
+  },
+  {
+    "book": "2",
+    "imagenumber": "2",
+    "filename": "1_鄒雪平.jpg",
+    "cutline": "鄒雪平同學 2",
+    "credit": "(美國之音章明拍攝)",
+    "alttext": "alt textification",
+    "rowNumber": 7
+  },
+  {
+    "book": "2",
+    "imagenumber": "3",
     "filename": "steve.jpg",
     "cutline": "caption",
     "credit": "polaroid",
     "alttext": "alt",
-    "rowNumber": 3
+    "rowNumber": 8
+  },
+  {
+    "book": "0",
+    "imagenumber": "0",
+    "filename": "1_cover.jpg",
+    "cutline": "cover photo",
+    "credit": "x",
+    "alttext": "x",
+    "rowNumber": 9
+  },
+  {
+    "book": "0",
+    "imagenumber": "1",
+    "filename": "bob.jpg",
+    "cutline": "this is a cutline",
+    "credit": "AP",
+    "alttext": "alt text goes here.",
+    "rowNumber": 10
+  },
+  {
+    "book": "0",
+    "imagenumber": "2",
+    "filename": "jane.jpg",
+    "cutline": "cutline or caption",
+    "credit": "Reuters",
+    "alttext": "alt textification",
+    "rowNumber": 11
+  },
+  {
+    "book": "0",
+    "imagenumber": "3",
+    "filename": "steve.jpg",
+    "cutline": "caption",
+    "credit": "polaroid",
+    "alttext": "alt",
+    "rowNumber": 12
   }
 ]
