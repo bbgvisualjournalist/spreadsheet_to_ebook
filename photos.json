@@ -12,7 +12,7 @@
     "book": "1",
     "imagenumber": "1",
     "filename": "1_鄒雪平.jpg",
-    "cutline": "鄒雪平同學 1",
+    "cutline": "鄒雪平同學 ",
     "credit": "(美國之音章明拍攝)",
     "alttext": "鄒雪平",
     "rowNumber": 2
@@ -21,7 +21,7 @@
     "book": "1",
     "imagenumber": "2",
     "filename": "2_墓碑封面.jpg",
-    "cutline": "《墓碑：中國六十年代大饑荒紀實》封面 2",
+    "cutline": "《墓碑：中國六十年代大饑荒紀實》封面 ",
     "credit": "",
     "alttext": "alt textification",
     "rowNumber": 3
@@ -38,7 +38,7 @@
   {
     "book": "2",
     "imagenumber": "0",
-    "filename": "1_cover.jpg",
+    "filename": "2_cover.jpg",
     "cutline": "cover photo",
     "credit": "x",
     "alttext": "x",
@@ -72,16 +72,16 @@
     "rowNumber": 8
   },
   {
-    "book": "0",
+    "book": "3",
     "imagenumber": "0",
-    "filename": "1_cover.jpg",
+    "filename": "3_cover.jpg",
     "cutline": "cover photo",
     "credit": "x",
     "alttext": "x",
     "rowNumber": 9
   },
   {
-    "book": "0",
+    "book": "3",
     "imagenumber": "1",
     "filename": "bob.jpg",
     "cutline": "this is a cutline",
@@ -90,7 +90,7 @@
     "rowNumber": 10
   },
   {
-    "book": "0",
+    "book": "3",
     "imagenumber": "2",
     "filename": "jane.jpg",
     "cutline": "cutline or caption",
@@ -99,12 +99,21 @@
     "rowNumber": 11
   },
   {
-    "book": "0",
+    "book": "3",
     "imagenumber": "3",
     "filename": "steve.jpg",
     "cutline": "caption",
     "credit": "polaroid",
     "alttext": "alt",
     "rowNumber": 12
+  },
+  {
+    "book": "4",
+    "imagenumber": "0",
+    "filename": "4_cover.jpg",
+    "cutline": "caption",
+    "credit": "polaroid",
+    "alttext": "alt",
+    "rowNumber": 13
   }
 ]
