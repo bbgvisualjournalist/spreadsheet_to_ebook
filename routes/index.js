@@ -5,8 +5,18 @@ var router = express.Router();
 
 /* GET list of books and links to files. */
 router.get('/', function(req, res, next) {
+  var coverPhotos_array = [];
+
+  for (var i=0; i<global.book.photos.length; i++){
+    if (global.book.photos[i].imagenumber==0){
+      var coverPhoto = global.book.photos[i].filename;
+      coverPhotos_array.push(coverPhoto);
+    }
+  }
+
   res.render('index', { 
-    title: 'Books'
+    title: 'Books',
+    cover: coverPhotos_array
   });
 });
 
@@ -19,12 +29,26 @@ router.get('/chinese', function(req, res, next) {
 
 /* GET book number for content.opf. */
 router.get('/book/:bookNum/content.opf', function(req, res, next) {
-  var bookNumber = req.params.bookNum;
+  var bookNumber = parseInt(req.params.bookNum);
   var d = new Date().toISOString();
+  var originalPubDate=global.book.config[0].originalpubdate;
+  originalPubDateFormatted = new Date(originalPubDate).toISOString();
+
+  var photos_array = [];
+
+  for (var i=0; i<global.book.photos.length; i++){
+    if (bookNumber+1==global.book.photos[i].book){
+      var photo = global.book.photos[i].filename;
+      photos_array.push(photo);
+    }
+  }
+
 
   res.render('content', { 
   	book: bookNumber,
-  	date: d
+    photos: photos_array,
+  	date: d,
+    pubDate: originalPubDateFormatted
   });
 });
 

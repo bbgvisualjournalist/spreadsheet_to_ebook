@@ -3,8 +3,8 @@
 <metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<dc:creator id="author"><%- global.book.config[0].authorenglish %></dc:creator>
 	<meta refines="#author" property="alternate-script" xml:lang="zh-Hant"><%- global.book.config[0].author %></meta>
-	<dc:publisher>Mirror Publishing</dc:publisher>
-	<dc:date>2013-07-08T04:00:00+00:00</dc:date>
+	<dc:publisher><%- global.book.config[0].publisher %></dc:publisher>
+	<dc:date><%- pubDate %></dc:date>
 	<dc:description><%- global.book.meta[book].description %> </dc:description id="description">
 	<meta refines="#description" property="alternate-script" xml:lang="en"><%- global.book.meta[book].descriptionenglish %> </meta>
 	<dc:language>zh</dc:language>
@@ -21,7 +21,6 @@
 </metadata>
 <manifest>
 	<item id="cover" href="cover.xhtml" media-type="application/xhtml+xml" properties="svg"/>
-	<item id="cover-image" href="cover.jpeg" media-type="image/jpeg"/>
 	<item id="toc" href="toc.xhtml" media-type="application/xhtml+xml" properties="nav"/>
 	<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
 	<item id="titlepage" href="titlepage.xhtml" media-type="application/xhtml+xml"/>
@@ -35,8 +34,9 @@
 	<item id="font3" href="fonts/ヒラギノ明朝ProW6.otf" media-type="application/vnd.ms-opentype"/>
 	<item id="font4" href="fonts/ヒラギノ明朝ProW3.otf" media-type="application/vnd.ms-opentype"/>
 	<!--Update the images and videos-->
-	<%for (var i=0; i<global.book.photos.length;i++){ %>
-	<item id="photo<%= i %>" href="images/<%= global.book.photos[i].filename%>" media-type="image/jpeg"/><% } %>
+	<item id="cover-image" href="images/<%= photos[0] %>" media-type="image/jpeg"/>
+	<%for (var i=1; i<photos.length;i++){ %>
+	<item id="photo<%= i %>" href="images/<%= photos[i] %>" media-type="image/jpeg"/><% } %>
 </manifest>
 <spine toc="ncx">
 	<itemref idref="cover"/>

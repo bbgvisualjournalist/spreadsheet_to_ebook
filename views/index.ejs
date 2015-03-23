@@ -5,21 +5,27 @@
 	<title><%= title %></title>
 	<style type="text/css">
 		body{padding:20px 5%;}
+		#container{max-width: 800px; margin: 0 auto;}
+		.book{margin-bottom:30px;}
 		h1{font-family: sans-serif; text-align: left;}
+		.cover{width: 100px;float:left; margin-right:20px;}
+		.clearAll{clear:both;}
 	</style>
 </head>
 <body>
-
+<div id='container'>
 	<h1><%= title %></h1>
-	<p>The metadata, titles and chapters are being generated from this <a href='https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml' target='_blank'>google spreadsheet</a>.</p>
+	<p><strong>The metadata, titles and chapters are being generated from this <a href='https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml' target='_blank'>google spreadsheet</a>.</strong></p>
 	<br/>
 
 	<% for (var i=0; i<global.book.meta.length; i++){ %>
 		<div class='book'>
 		<h3><%= global.book.meta[i].booktitle %> | <%= global.book.meta[i].booktitleenglish %></h3>
-		<p><%= global.book.meta[i].descriptionenglish %></p>
+		<p><img src='images/<%= cover[i] %>' class='cover'/>
+		<%= global.book.meta[i].descriptionenglish %></p>
+		<div class='clearAll'></div>
 		<ul>
-			<li><a href='/book/<%= i %>/content.opf'>content.opf</a></li>
+			<li><a href='view-source:http://visualjournali.st/book/<%= i %>/content.opf'>content.opf</a></li>
 			<li><a href='/book/<%= i %>/toc.xhtml'>toc.xhtml</a></li>
 			<li><a href='/book/<%= i %>/titlepage.xhtml'>titlepage.xhtml</a></li>
 			<li><a href='/book/<%= i %>/introduction.xhtml'>introduction.xhtml</a></li>
@@ -27,8 +33,7 @@
 			<li><a href='/book/<%= i %>/backmatter.xhtml'>backmatter.xhtml</a> (dummy content)</li>
 		</ul>
 		</div>
-		<br/>
 	<% } %>
-
+</div>
 </body>
 </html>
