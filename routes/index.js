@@ -63,27 +63,27 @@ router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
   var bookNumber = parseInt(req.params.bookNum);
   var concat = "partials/content/chapter"+bookNumber+".ejs";
   var photos_array = [];
-  var cutlines_array = [];
-  var credits_array = [];
-  var alt_array = [];
+  var chapters_array = [];
 
   for (var i=0; i<global.book.photos.length; i++){
     if (bookNumber+1==global.book.photos[i].book){
-      console.log('pushed!!!!!!!!!!!')
-      photos_array.push(global.book.photos[i].filename);
-      cutlines_array.push(global.book.photos[i].cutline);
-      credits_array.push(global.book.photos[i].credit);
-      alt_array.push(global.book.photos[i].alttext);
+      var photo ='<div class="img_fs_cap"><div><img src="../../images/' + global.book.photos[i].filename +'" alt="' + global.book.photos[i].alttext +'" /></div><p class="caption">' + global.book.photos[i].cutline + ' ' + global.book.photos[i].credit + '</p></div>';
+      photos_array.push(photo);
+    }
+  }
+
+  for (var i=0; i<global.book.chapters.length; i++){
+    if (bookNumber+1==global.book.chapters[i].book){
+      var chapter =global.book.chapters[i].chaptertitle;
+      chapters_array.push(chapter);
     }
   }
 
   res.render('bodymatter', { 
   	book: bookNumber,
   	chapter: concat,
-    photos: photos_array,
-    cutlines: cutlines_array,
-    credits: credits_array,
-    alt: alt_array
+    photo: photos_array,
+    chapter_title: chapters_array
   });
 });
 
