@@ -3,9 +3,17 @@ var router = express.Router();
 
 
 
-/* GET list of books and links to files. */
+/* Display an index of the books and links to files. */
 router.get('/', function(req, res, next) {
   var coverPhotos_array = [];
+
+  var mode = req.query.mode;
+  console.log("mode: "+mode);
+
+  var pathMode = '../../';
+  if (mode == 'export'){
+    pathMode = './'
+  }
 
   for (var i=0; i<global.book.photos.length; i++){
     if (global.book.photos[i].imagenumber==0){
@@ -16,18 +24,12 @@ router.get('/', function(req, res, next) {
 
   res.render('index', { 
     title: 'Books',
-    cover: coverPhotos_array
+    cover: coverPhotos_array,
+    pathPrefix: pathMode
   });
 });
 
-/* GET list of books and links to files. */
-router.get('/chinese', function(req, res, next) {
-  res.render('index_chinese', { 
-    title: 'Books'
-  });
-});
-
-/* GET book number for content.opf. */
+/* Create content.opf. (This is an xml document so look at the source code)*/
 router.get('/book/:bookNum/content.opf', function(req, res, next) {
   var bookNumber = parseInt(req.params.bookNum);
   var d = new Date().toISOString();
@@ -52,7 +54,7 @@ router.get('/book/:bookNum/content.opf', function(req, res, next) {
   });
 });
 
-/* GET book number for titlepage.xhtml. */
+/* Display titlepage.xhtml. */
 router.get('/book/:bookNum/titlepage.xhtml', function(req, res, next) {
   var bookNumber = req.params.bookNum;
 
@@ -62,7 +64,7 @@ router.get('/book/:bookNum/titlepage.xhtml', function(req, res, next) {
 });
 
 
-/* GET book number for toc.xhtml. */
+/* Display toc.xhtml. */
 router.get('/book/:bookNum/toc.xhtml', function(req, res, next) {
   var bookNumber = req.params.bookNum;
 
@@ -72,7 +74,7 @@ router.get('/book/:bookNum/toc.xhtml', function(req, res, next) {
 });
 
 
-/* GET book number for introduction.xhtml. */
+/* Display introduction.xhtml. */
 router.get('/book/:bookNum/introduction.xhtml', function(req, res, next) {
   var bookNumber = req.params.bookNum;
 
@@ -82,20 +84,32 @@ router.get('/book/:bookNum/introduction.xhtml', function(req, res, next) {
 });
 
 
-/* GET book number for bodymatter.xhtml. */
+/* Display bodymatter.xhtml. */
 router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
   var bookNumber = parseInt(req.params.bookNum);
   var concat = "partials/content/chapter"+bookNumber+".ejs";
   var photos_array = [];
   var chapters_array = [];
 
+
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
+  var pathMode = '';
+  if (mode == 'export'){
+    pathMode = ''
+  }
+
+
+  //create code snippets for each photo, alt tag, caption and credit.
   for (var i=0; i<global.book.photos.length; i++){
     if (bookNumber+1==global.book.photos[i].book){
-      var photo ='<div class="img_fs_cap"><div><img src="../../images/' + global.book.photos[i].filename +'" alt="' + global.book.photos[i].alttext +'" /></div><p class="caption">' + global.book.photos[i].cutline + ' ' + global.book.photos[i].credit + '</p></div>';
+      var photo ='<div class="img_fs_cap"><div><img src="'+ pathMode +'images/' + global.book.photos[i].filename +'" alt="' + global.book.photos[i].alttext +'" /></div><p class="caption">' + global.book.photos[i].cutline + ' ' + global.book.photos[i].credit + '</p></div>';
       photos_array.push(photo);
     }
   }
 
+  //create an array of the chapters for this book.
   for (var i=0; i<global.book.chapters.length; i++){
     if (bookNumber+1==global.book.chapters[i].book){
       var chapter =global.book.chapters[i].chaptertitle;
@@ -107,12 +121,13 @@ router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
   	book: bookNumber,
   	chapter: concat,
     photo: photos_array,
-    chapter_title: chapters_array
+    chapter_title: chapters_array,
+    pathPrefix: pathMode
   });
 });
 
 
-/* GET book number for backmatter.xhtml. */
+/* Display the backmatter.xhtml. */
 router.get('/book/:bookNum/backmatter.xhtml', function(req, res, next) {
   var bookNumber = req.params.bookNum;
   var concat = "partials/content/back"+bookNumber+".ejs"
