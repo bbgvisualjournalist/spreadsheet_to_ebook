@@ -95,7 +95,7 @@ router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
   //edit this for exporting to epub so that paths match up
   //specifically for head.js with the CSS
   var mode = req.query.mode;
-  var pathMode = '';
+  var pathMode = '../../';
   if (mode == 'export'){
     pathMode = ''
   }

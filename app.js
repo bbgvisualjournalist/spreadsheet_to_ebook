@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
 
 
@@ -107,6 +108,9 @@ app.use(function(req, res, next) {
 
 
 // error handlers
+
+//When you're ready to be in production mode, uncomment this:
+//app.set('env', 'production')
 
 // development error handler
 // will print stacktrace
