@@ -57,6 +57,26 @@ router.get('/book/:bookNum/content.opf', function(req, res, next) {
   });
 });
 
+
+/* Display cover.xhtml. */
+router.get('/book/:bookNum/cover.xhtml', function(req, res, next) {
+  var bookNumber = parseInt(req.params.bookNum);
+
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
+  var pathMode = '../../';
+  if (mode == 'export'){
+    pathMode = ''
+  }
+
+  res.render('cover', { 
+    book: bookNumber,
+    pathPrefix: pathMode
+  });
+});
+
+
 /* Display titlepage.xhtml. */
 router.get('/book/:bookNum/titlepage.xhtml', function(req, res, next) {
   var bookNumber = parseInt(req.params.bookNum);
