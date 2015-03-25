@@ -10,9 +10,12 @@ router.get('/', function(req, res, next) {
   var mode = req.query.mode;
   console.log("mode: "+mode);
 
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
   var pathMode = '../../';
   if (mode == 'export'){
-    pathMode = './'
+    pathMode = ''
   }
 
   for (var i=0; i<global.book.photos.length; i++){
@@ -56,30 +59,57 @@ router.get('/book/:bookNum/content.opf', function(req, res, next) {
 
 /* Display titlepage.xhtml. */
 router.get('/book/:bookNum/titlepage.xhtml', function(req, res, next) {
-  var bookNumber = req.params.bookNum;
+  var bookNumber = parseInt(req.params.bookNum);
+
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
+  var pathMode = '../../';
+  if (mode == 'export'){
+    pathMode = ''
+  }
 
   res.render('titlepage', { 
-    book: bookNumber
+    book: bookNumber,
+    pathPrefix: pathMode
   });
 });
 
 
 /* Display toc.xhtml. */
 router.get('/book/:bookNum/toc.xhtml', function(req, res, next) {
-  var bookNumber = req.params.bookNum;
+  var bookNumber = parseInt(req.params.bookNum);
+
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
+  var pathMode = '../../';
+  if (mode == 'export'){
+    pathMode = ''
+  }
 
   res.render('toc', { 
-  	book: bookNumber
+  	book: bookNumber,
+    pathPrefix: pathMode
   });
 });
 
 
 /* Display introduction.xhtml. */
 router.get('/book/:bookNum/introduction.xhtml', function(req, res, next) {
-  var bookNumber = req.params.bookNum;
+  var bookNumber = parseInt(req.params.bookNum);
+
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
+  var pathMode = '../../';
+  if (mode == 'export'){
+    pathMode = ''
+  }
 
   res.render('introduction', { 
-  	book: bookNumber
+  	book: bookNumber,
+    pathPrefix: pathMode
   });
 });
 
@@ -87,7 +117,7 @@ router.get('/book/:bookNum/introduction.xhtml', function(req, res, next) {
 /* Display bodymatter.xhtml. */
 router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
   var bookNumber = parseInt(req.params.bookNum);
-  var concat = "partials/content/chapter"+bookNumber+".ejs";
+  var concat = "partials/content/chapter"+ (bookNumber + 1) +".ejs";
   var photos_array = [];
   var chapters_array = [];
 
@@ -129,11 +159,21 @@ router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
 
 /* Display the backmatter.xhtml. */
 router.get('/book/:bookNum/backmatter.xhtml', function(req, res, next) {
-  var bookNumber = req.params.bookNum;
-  var concat = "partials/content/back"+bookNumber+".ejs"
+  var bookNumber = parseInt(req.params.bookNum);
+  var concat = "partials/content/back"+ (bookNumber + 1) +".ejs"
+
+  //edit this for exporting to epub so that paths match up
+  //specifically for head.js with the CSS
+  var mode = req.query.mode;
+  var pathMode = '../../';
+  if (mode == 'export'){
+    pathMode = ''
+  }
+
   res.render('backmatter', { 
   	book: bookNumber,
-  	chapter: concat
+  	chapter: concat,
+    pathPrefix: pathMode
   });
 });
 
