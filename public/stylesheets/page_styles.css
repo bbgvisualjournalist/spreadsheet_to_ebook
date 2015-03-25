@@ -14,24 +14,24 @@
 @font-face {
     font-family: "Adobe Heiti Std";
     font-weight: normal;
-    src: url(fonts/AdobeHeitiStd-Regular.otf)
+    src: url(../fonts/AdobeHeitiStd-Regular.otf)
 }
 
 @font-face {
     font-family: "Adobe Heiti Std";
     font-weight: bold;
-    src: url(fonts/AdobeFanHeitiStd-Bold.otf);
+    src: url(../fonts/AdobeFanHeitiStd-Bold.otf);
     }
 
 @font-face {
     font-family: "Hiragino Mincho Pro";
     font-weight: normal;
-    src: url(fonts/ヒラギノ明朝ProW3.otf);
+    src: url(../fonts/ヒラギノ明朝ProW3.otf);
     }
 
 @font-face {
     font-family: "Hiragino Mincho Pro";
     font-weight: bold;
-    src: url(fonts/ヒラギノ明朝ProW6.otf);
+    src: url(../fonts/ヒラギノ明朝ProW6.otf);
 }
 
