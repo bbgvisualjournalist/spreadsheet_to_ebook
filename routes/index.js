@@ -36,18 +36,19 @@ router.get('/', function(req, res, next) {
 router.get('/book/:bookNum/content.opf', function(req, res, next) {
   var bookNumber = parseInt(req.params.bookNum);
   var d = new Date().toISOString();
+  d = d.replace(/\..*Z/, 'Z');//Removes decimal values that throw errors.
+
   var originalPubDate=global.book.config[0].originalpubdate;
   originalPubDateFormatted = new Date(originalPubDate).toISOString();
+  originalPubDateFormatted = originalPubDateFormatted.replace(/\..*Z/, 'Z');
 
   var photos_array = [];
-
   for (var i=0; i<global.book.photos.length; i++){
     if (bookNumber+1==global.book.photos[i].book){
       var photo = global.book.photos[i].filename;
       photos_array.push(photo);
     }
   }
-
 
   res.render('content', { 
   	book: bookNumber,
