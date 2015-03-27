@@ -27,7 +27,9 @@ body {
 	-moz-hyphens: none !important;
 	hyphens: none !important;
 }
-
+@media (min-width:300px) {
+	body{padding:0 20px;}
+}
 /*Images*/
 svg {/*Wrapper for responsive scaling*/
 	width: 100%;/*Set proportional height based on image ratio in HTML*/

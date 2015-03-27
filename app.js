@@ -92,9 +92,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-console.log('works')
-console.log(app);
-console.log('----')
 app.use('/', routes);
 
 // catch 404 and forward to error handler
