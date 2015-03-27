@@ -19,6 +19,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
+console.log("BEFORE SERVER")
+
 var server = http.createServer(app);
 
 console.log("SERVER!")
