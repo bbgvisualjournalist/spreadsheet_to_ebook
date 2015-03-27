@@ -20,8 +20,8 @@
 
 	<% for (var i=0; i<global.book.meta.length; i++){ %>
 		<div class='book'>
-		<h3><%= global.book.meta[i].booktitle %> | <%= global.book.meta[i].booktitleenglish %></h3>
-		<p><img src='images/<%= cover[i] %>' class='cover'/>
+		<h3><%=i + 1%>. <%= global.book.meta[i].booktitle %> | <%= global.book.meta[i].booktitleenglish %></h3>
+		<p><a href='/book/<%= i %>/bodymatter.xhtml'><img src='images/<%= cover[i] %>' class='cover'/></a>
 		<%= global.book.meta[i].descriptionenglish %></p>
 		<div class='clearAll'></div>
 		<ul id='book<%=i%>'>
@@ -30,8 +30,8 @@
 			<li><a href='/book/<%= i %>/toc.xhtml'>toc.xhtml</a></li>
 			<li><a href='/book/<%= i %>/titlepage.xhtml'>titlepage.xhtml</a></li>
 			<li><a href='/book/<%= i %>/introduction.xhtml'>introduction.xhtml</a></li>
-			<li><a href='/book/<%= i %>/bodymatter.xhtml'>bodymatter.xhtml</a> (dummy content)</li>
-			<li><a href='/book/<%= i %>/backmatter.xhtml'>backmatter.xhtml</a> (dummy content)</li>
+			<li><a href='/book/<%= i %>/bodymatter.xhtml'>bodymatter.xhtml</a></li>
+			<li><a href='/book/<%= i %>/backmatter.xhtml'>backmatter.xhtml</a></li>
 		</ul>
 		</div>
 	<% } %>
