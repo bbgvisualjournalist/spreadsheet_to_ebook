@@ -118,7 +118,9 @@ a {
 	margin-bottom: 5em;
 }
 
-blockquote.pullout {
+
+/*Replace blockquote tag with div to help with validation*/
+.pullout {
 	font: 1em/1.5em "Hiragino Mincho Pro", serif;
 	margin: 2em 1em;
 	padding: 0.5em;
@@ -126,7 +128,8 @@ blockquote.pullout {
 	page-break-inside: avoid;
 }
 
-blockquote.announcement {
+
+.announcement {
 	border: double 2pt;
 	margin: 2em 1em;
 	padding: 0.5em;
