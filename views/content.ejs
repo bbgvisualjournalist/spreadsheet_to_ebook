@@ -20,7 +20,7 @@
 	<meta property="dcterms:modified"><%= date %></meta>
 </metadata>
 <manifest>
-	<item id="cover" href="cover.xhtml" media-type="application/xhtml+xml" properties="svg"/>
+	<item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/>
 	<item id="toc" href="toc.xhtml" media-type="application/xhtml+xml" properties="nav"/>
 	<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
 	<item id="titlepage" href="titlepage.xhtml" media-type="application/xhtml+xml"/>
@@ -34,7 +34,7 @@
 	<item id="font3" href="fonts/ヒラギノ明朝ProW6.otf" media-type="application/vnd.ms-opentype"/>
 	<item id="font4" href="fonts/ヒラギノ明朝ProW3.otf" media-type="application/vnd.ms-opentype"/>
 
-	<item id="cover-image" href="images/<%= photos[0] %>" media-type="image/jpeg"/>
+	<item id="cover-image" href="images/<%= photos[0] %>" media-type="image/jpeg" properties="cover-image"/>
 	<%for (var i=1; i<photos.length;i++){ %>
 	<item id="photo<%= i %>" href="images/<%= photos[i] %>" media-type="image/jpeg"/><% } %>
 </manifest>
