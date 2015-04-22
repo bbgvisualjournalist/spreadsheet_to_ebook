@@ -8,5 +8,10 @@ I'm using [Tabletop.js](https://github.com/jsoma/tabletop) to simplify working w
 
 By using a single source for the data, I can ensure that changes to chapter titles are accurately reflected in the table of contents and the chapter itself. That images that appear in the book are listed in the required content.opf document. And that edits remain current.
 
-###Still to come
-I need to simplify the process for batch exporting the books into separate folders.
+##Running the application
+1. Download the package. 
+2. Run ```npm install``` (or 'sudo npm install') to install the dependencies.
+3. Run ```node www```
+
+###Downloading the ebooks.
+I wrote a [simple app](https://github.com/bbgvisualjournalist/download_chinese_ebooks) for downloading and compiling the various components of each epub translation.
