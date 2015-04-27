@@ -4,19 +4,37 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var routes = require('./routes/index');
 
 var app = express();
+
+var Tabletop = require('tabletop');
+var spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml';
 
 
 //Add a simple function for reading files.
 var fs = require('fs');
 var jf = require('jsonfile');
 
+
 function readJSONFile( path ){
-	var binaryData = fs.readFileSync( path );
-	return JSON.parse( binaryData.toString() );
+	//Added a simple check to see if the JSON files exist.
+	var binaryData;
+	try {
+		binaryData = fs.readFileSync( path);
+		return JSON.parse( binaryData.toString() );
+	} catch (e) {
+		if (e.code === 'ENOENT') {
+			console.log(path + ' not found!');
+			console.log(path + ' needs to be created once before the site will work properly.')
+			console.log("(Normally there's about a 1-minute delay.)")
+
+			binaryData = {};
+			return binaryData;
+		} else {
+			throw e;
+		} 
+	}
 }
 
 
@@ -27,7 +45,6 @@ global.book.chapters = readJSONFile('./chapters.json');
 global.book.photos = readJSONFile('./photos.json');
 global.book.config = readJSONFile('./config.json');
 
-
 //Toggle for offline use; ignores Google spreadsheet request.
 var offlineMode=false;
 
@@ -37,13 +54,9 @@ var offlineMode=false;
 setInterval(fetchData, 60000);
 
 
-//Fetch data from Google spreadsheet
+//Load data from google spreadsheet and write it to the meta.json, photos.json and chapters.json files.
 function fetchData(){
 	if (!offlineMode){
-		//Load data from google spreadsheet and write it to the meta.json, photos.json and chapters.json files.
-		var Tabletop = require('tabletop');
-		var testURL = 'https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml';
-
 		var myData;
 		function onLoad(data, tabletop) {
 			//console.log(data);
@@ -70,7 +83,7 @@ function fetchData(){
 		};
 
 		var options = {
-			key: testURL,
+			key: spreadsheetURL,
 			callback: onLoad
 		};
 

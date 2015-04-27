@@ -182,7 +182,6 @@ router.get('/book/:bookNum/bodymatter.xhtml', function(req, res, next) {
 		pathMode = ''
 	}
 
-
 	//create code snippets for each photo, alt tag, caption and credit.
 	for (var i=0; i<global.book.photos.length; i++){
 		if (bookNumber+1==global.book.photos[i].book){
