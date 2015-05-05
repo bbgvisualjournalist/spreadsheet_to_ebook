@@ -23,14 +23,6 @@
       <content src="introduction.xhtml#preface2"/>
     </navPoint>
 
-    <navPoint id="foreword" playOrder="3">
-      <navLabel>
-        <text>前言：解密《解密時刻》</text>
-      </navLabel>
-      <content src="introduction.xhtml#foreword"/>
-    </navPoint>
-
-
     <% for (var i=0; i<global.book.chapters.length; i++){ %>
       <% if (global.book.chapters[i].book - 1 == book){ %>
         <navPoint id="<%= global.book.chapters[i].htmlid %>" playOrder="<%= parseInt(global.book.chapters[i].chapter) + 4 %>">
