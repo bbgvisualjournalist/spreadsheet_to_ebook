@@ -25,20 +25,20 @@
 
     <% for (var i=0; i<global.book.chapters.length; i++){ %>
       <% if (global.book.chapters[i].book - 1 == book){ %>
-        <navPoint id="<%= global.book.chapters[i].htmlid %>" playOrder="<%= parseInt(global.book.chapters[i].chapter) + 4 %>">
+        <navPoint id="<%= global.book.chapters[i].htmlid %>" playOrder="<%= parseInt(global.book.chapters[i].chapter) + 3 %>">
           <navLabel>
             <text><%= global.book.chapters[i].chaptertitle %></text>
           </navLabel>
           <content src="bodymatter.xhtml#<%= global.book.chapters[i].htmlid %>"/>
         </navPoint><% } %><% } %>
 
-    <navPoint id="rearnotes" playOrder="<%= numberOfChapters + 4 %>">
+    <navPoint id="rearnotes" playOrder="<%= numberOfChapters + 3 %>">
       <navLabel>
         <text>註釋</text>
       </navLabel>
       <content src="backmatter.xhtml#rearnotes"/>
     </navPoint>
-    <navPoint id="afterword" playOrder="<%= numberOfChapters + 5 %>">
+    <navPoint id="afterword" playOrder="<%= numberOfChapters + 4 %>">
       <navLabel>
         <text>編後語</text>
       </navLabel>
