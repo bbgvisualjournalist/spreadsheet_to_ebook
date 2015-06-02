@@ -11,7 +11,8 @@ By using a single source for the data, I can ensure that changes to chapter titl
 ##Running the application
 1. Download the package. 
 2. Run ```npm install``` (or 'sudo npm install') to install the dependencies.
-3. Run ```node www```
+3. Create a ```config.js``` file (or rename the ```config.sample.js```) with your spreadsheet URL, refresh rate, port number etc.
+4. Run ```node www```
 
 ###Downloading the ebooks.
 I wrote a [simple app](https://github.com/bbgvisualjournalist/download_chinese_ebooks) for downloading and compiling the various components of each epub translation.
