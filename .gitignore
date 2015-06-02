@@ -30,5 +30,11 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-# oldData
-oldData/
+# old data
+data/*.json
+
+# Ignore the config.js; but allow the config.sample.js
+config.js
+
+# Ignore Webstorm folder
+/.idea/

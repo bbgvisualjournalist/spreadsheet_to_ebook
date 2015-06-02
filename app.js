@@ -5,18 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
-
 var app = express();
-
 var Tabletop = require('tabletop');
-var spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml';
-
-
-//Add a simple function for reading files.
 var fs = require('fs');
 var jf = require('jsonfile');
 
 
+var config = require('./config');
+var spreadsheetURL = config.spreadsheet;
+
+
+//Add a simple function for reading files.
 function readJSONFile( path ){
 	//Added a simple check to see if the JSON files exist.
 	var binaryData;
@@ -38,20 +37,34 @@ function readJSONFile( path ){
 }
 
 
-//Use namespaced global variable to keep data that will update.
+
+var sheets = config.sheet;
 global.book = {};
-global.book.meta = readJSONFile('./meta.json');
-global.book.chapters = readJSONFile('./chapters.json');
-global.book.photos = readJSONFile('./photos.json');
-global.book.config = readJSONFile('./config.json');
+
+if (!fs.existsSync('data')) fs.mkdirSync('data');
+
+for (var i = 0; i<sheets.length; i++){
+	//Use namespaced global variable to keep data that will update.
+	//EXAMPLE: global.meta = {};
+	global.book[sheets[i]] = {};
+
+	//Load data from saved JSON files into global variables.
+	//EXAMPLE: global.meta = readJSONFile('./data/meta.json');
+	var filename = './data/' + sheets[i] + '.json'
+	global.book[sheets[i]] = readJSONFile(filename);
+}
+
+
+
+
+
 
 //Toggle for offline use; ignores Google spreadsheet request.
-var offlineMode=false;
+var offlineMode = config.offline;
 
 
 //Add a timer to periodically update data for edits.
-//20000 = 20 seconds; 60000 = 1 minute ; 300000 = 5 minutes
-setInterval(fetchData, 60000);
+setInterval(fetchData, config.timer);
 
 
 //Load data from google spreadsheet and write it to the meta.json, photos.json and chapters.json files.
@@ -59,27 +72,29 @@ function fetchData(){
 	if (!offlineMode){
 		var myData;
 		function onLoad(data, tabletop) {
-			//console.log(data);
 			console.log("loading, updating and saving data from spreadsheet");
 
-			//
-			jf.writeFile("chapters.json", data.chapters.elements, function(err) {
-				global.book.chapters = readJSONFile('./chapters.json');
-				console.log(err)
-			})
-			jf.writeFile("meta.json", data.meta.elements, function(err) {
-				global.book.meta = readJSONFile('./meta.json');
-				console.log(err)
-			})
-			jf.writeFile("photos.json", data.photos.elements, function(err) {
-				global.book.photos = readJSONFile('./photos.json');
-				console.log(err)
-			})
-			jf.writeFile("config.json", data.config.elements, function(err) {
-				global.book.config = readJSONFile('./config.json');
-				console.log(err);
-			})
 
+			//Write updated data to .JSON files and update global variables.
+			/*
+			 jf.writeFile("data/titlepage.json", data.titlepage.elements, function(err) {
+				 global.book.titlepage = readJSONFile('./data/titlepage.json');
+			 })
+			*/
+			var currentNumber=0;
+			function writeJSON(){
+				if(currentNumber<sheets.length){
+					var filename = './data/' + sheets[currentNumber] + '.json'
+
+					jf.writeFile(filename, data[sheets[currentNumber]].elements, function(err) {
+						global[sheets[currentNumber]] = readJSONFile(filename);
+
+						currentNumber++;
+						writeJSON();
+					})
+				}
+			}
+			writeJSON();
 		};
 
 		var options = {
