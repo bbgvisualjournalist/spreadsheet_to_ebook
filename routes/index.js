@@ -39,7 +39,7 @@ router.get('/book/:bookNum/content.opf', function(req, res, next) {
 	var d = new Date().toISOString();
 	d = d.replace(/\..*Z/, 'Z');//Removes decimal values that throw errors.
 
-	var originalPubDate=global.book.config[0].originalpubdate;
+	var originalPubDate=global.book.titlepage[0].originalpubdate;
 	originalPubDateFormatted = new Date(originalPubDate).toISOString();
 	originalPubDateFormatted = originalPubDateFormatted.replace(/\..*Z/, 'Z');
 
